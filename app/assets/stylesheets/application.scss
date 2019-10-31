@@ -11,4 +11,31 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "cocktails"
+@import "cocktails";
+
+.form-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 64px;
+  }
+
+  > div {
+    padding: 20px;
+    width: 800px;
+    box-shadow: 0 0 100px orange;
+    border-radius: 10px;
+    color: white;
+  }
+
+  .form {
+    width: 600px;
+    margin: 0 auto;
+  }
+}
+

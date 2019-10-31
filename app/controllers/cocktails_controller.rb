@@ -3,15 +3,16 @@ class CocktailsController < ApplicationController
 
   def index
     @cocktails = Cocktail.all
-    @ingredients = Ingredient.all
-    @doses = Dose.all
     # raise
   end
 
-  def show; end
+  def show
+    @dose = Dose.new
+  end
 
   def new
     @cocktail = Cocktail.new
+    @ingredients = Ingredient.all
   end
 
   def create
@@ -42,6 +43,6 @@ class CocktailsController < ApplicationController
   end
 
   def cocktail_params
-    params.require(:cocktail).permit(:name)
+    params.require(:cocktail).permit(:name, :description)
   end
 end

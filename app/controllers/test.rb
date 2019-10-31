@@ -31,3 +31,14 @@ until ingredient.nil?
   end
   counter += 1
 end
+
+
+
+
+
+# <!--
+# <%= simple_form_for [cocktail, dose] do |f| %>
+#   <%= f.association :ingredient, input_html: { class: "beautiful-dropdown" }, include_hidden: false %>
+#   <%= f.input :description %>
+#   <%= f.button :submit, class: "btn btn-primary" %>
+# <% end %> -->
