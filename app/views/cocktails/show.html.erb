@@ -1,14 +1,22 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @cocktail.image_url %>'); background-size: 15%">
-  <h1><%= @cocktail.name %></h1>
-</div>
+<div class="wrapper">
 
-<div class="container">
-  <h3><%= @cocktail.description %></h3>
+  <div class="cocktail-background" style="background-image: url('<%= @cocktail.image_url %>');">
+  </div>
 
-  <ul>
-    <% doses = @cocktail.doses %>
-    <% doses.each do |dose| %>
-      <li><%= dose.ingredient.name %><%= dose.description %></li>
-    <% end %>
-  </ul>
+  <div class="cocktail-container">
+    <div class="cocktail-image">
+      <img src="<%= @cocktail.image_url %>" alt="#" style="height: 500px; width: 500px">
+    </div>
+    <div class="cocktail-infos">
+      <h1><%= @cocktail.name %></h1>
+      <h3><%= @cocktail.description %></h3>
+      <ul>
+        <% doses = @cocktail.doses %>
+        <% doses.each do |dose| %>
+          <li><%= dose.description %> of <%= dose.ingredient.name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
 </div>
