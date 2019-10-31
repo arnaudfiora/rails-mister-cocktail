@@ -1,2 +1,14 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= @cocktail.image_url %>'); background-size: 15%">
+  <h1><%= @cocktail.name %></h1>
+</div>
+
+<div class="container">
+  <h3><%= @cocktail.description %></h3>
+
+  <ul>
+    <% doses = @cocktail.doses %>
+    <% doses.each do |dose| %>
+      <li><%= dose.ingredient.name %><%= dose.description %></li>
+    <% end %>
+  </ul>
+</div>

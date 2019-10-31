@@ -1,7 +1,75 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'json'
+require 'open-uri'
+
+# # ------------ INGREDIENTS ------------ #
+# # Destroy previous entries
+# Ingredient.destroy_all
+# puts 'All ingredient entries deleted'
+
+# # Fetch cocktail API
+# url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+# data = JSON.parse(open(url).read)
+
+# ingredients = data['drinks']
+
+# ingredients.each do |drink|
+#   name = drink.values.join.downcase
+#   Ingredient.create!(name: name)
+# end
+# puts '100 ingredients added'
+# # ------------------------------------- #
+
+# # ------------ COCKTAILS ------------ #
+# # # Destroy previous entries
+# # Cocktail.destroy_all
+# # puts 'All cocktail entries deleted'
+
+# # Fetch cocktail API
+# url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+
+# 25.times do
+#   data = JSON.parse(open(url).read)
+#   cocktail_data = data['drinks'].first
+
+#   Cocktail.create(
+#     cocktail_API_id: cocktail_data['idDrink'],
+#     name: cocktail_data['strDrink'],
+#     description: cocktail_data['strInstructions'],
+#     image_url: cocktail_data['strDrinkThumb']
+#   )
+# end
+# puts '25 cocktails added'
+# # ------------------------------------- #
+
+# # --------------- DOSES --------------- #
+# Dose.destroy_all
+# puts 'doses destroy'
+
+# cocktails = Cocktail.all
+# cocktails.each do |cocktail|
+#   api_id = cocktail.cocktail_API_id
+#   url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=#{api_id}"
+#   data = JSON.parse(open(url).read)
+
+#   counter = 1
+#   ingredient = data['drinks'].first["strIngredient#{counter}"]
+
+#   until ingredient.nil?
+#     ingredient = data['drinks'].first["strIngredient#{counter}"]
+#     description = data['drinks'].first["strMeasure#{counter}"]
+
+#     unless ingredient.nil? || description.nil?
+#       ingredient = ingredient.downcase
+#       dose = Dose.new(description: description)
+#       dose.ingredient = Ingredient.where(name: ingredient).first || Ingredient.create(name: ingredient)
+#       dose.cocktail = cocktail
+#       dose.save
+
+#       puts "dose added"
+#     end
+
+#     counter += 1
+#   end
+# end
+# puts 'All doses added'
+# # ------------------------------------- #

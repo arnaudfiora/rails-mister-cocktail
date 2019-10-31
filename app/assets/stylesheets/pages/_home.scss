@@ -1,1 +1,38 @@
-// Specific CSS for your home-page
+@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap');
+
+.banner {
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('cocktailsbanner2.png');
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 400px;
+  background-size: cover;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  color: white;
+  font-family: 'Staatliches', cursive;
+  font-size: 80px;
+  text-align: center;
+}
+
+.container {
+  width: 900px;
+  padding-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.link-to, .link-to:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.link-to:hover {
+  box-shadow: 0 0 30px black;
+}
