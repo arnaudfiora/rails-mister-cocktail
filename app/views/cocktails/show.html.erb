@@ -1,23 +1,36 @@
 <div class="wrapper">
 
-  <div class="cocktail-background" style="background-image: url('<%= @cocktail.image_url %>');">
-  </div>
+  <!-- Make my whole background clickable to go back to home page -->
+  <%= link_to root_path do %>
+    <div class="cocktail-background" style="background-image: url('<%= @cocktail.image_url %>');"></div>
+  <% end %>
 
+  <!-- Have a card centered which has an absolute position and appears on top of the previous div
+  Thus not affected by the clickable link -->
   <div class="cocktail-container">
-    <div class="cocktail-image">
-      <img src="<%= @cocktail.image_url %>" alt="#" style="height: 500px; width: 500px">
+
+    <div class="cocktail-image" style="background-image: url('<%= @cocktail.image_url %>');">
     </div>
+
     <div class="cocktail-infos">
       <h1><%= @cocktail.name %></h1>
       <h3><%= @cocktail.recipe %></h3>
       <ul>
         <% doses = @cocktail.doses %>
         <% doses.each do |dose| %>
-          <li><%= dose.description %> <%= dose.ingredient.name %> - <%= link_to "Remove", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } %></li>
+          <li><%= dose.description %> <%= dose.ingredient.name %> -
+            <%= link_to dose_path(dose), method: :delete, data: { confirm: "Are you sure?" } do %>
+              <i class="far fa-trash-alt" style="color: red;"></i>
+            <% end %>
+          </li>
         <% end %>
+        <li><%= render 'doses/new.html.erb' %></li>
       </ul>
-      <%= render 'doses/new.html.erb' %>
+
+      <div class="actions w-100 cocktail-actions">
+        <%= link_to "Edit", edit_cocktail_path(@cocktail), class: "btn btn-primary mx-2" %>
+        <%= link_to "Delete Cocktail", cocktail_path(@cocktail), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      </div>
     </div>
   </div>
-
 </div>

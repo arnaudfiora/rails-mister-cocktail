@@ -1,5 +1,11 @@
 <%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.association :ingredient %>
-  <%= f.input :description %>
-  <%= f.submit "Add", class: "btn btn-warning" %>
+  <div class="form-inline">
+    <div class="form-inputs form-inline">
+      <%= f.input :description, placeholder: 'Dose', label: false %>
+      <%= f.association :ingredient, label: false %>
+    </div>
+    <div class="form-actions form-inline">
+      <%= f.submit "Add", class: "btn btn-primary" %>
+    </div>
+  </div>
 <% end %>
