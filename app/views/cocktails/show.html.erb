@@ -2,15 +2,21 @@
 
   <!-- Make my whole background clickable to go back to home page -->
   <%= link_to root_path do %>
-    <div class="cocktail-background" style="background-image: url('<%= @cocktail.image_url %>');"></div>
+    <% if @cocktail.image_url %>
+      <div class="cocktail-background" style="background-image: url('<%= @cocktail.image_url %>');"></div>
+    <% else %>
+      <div class="cocktail-background" style="background-image: url('<%= cl_image_path @cocktail.photo %>');"></div>
+    <% end %>
   <% end %>
 
   <!-- Have a card centered which has an absolute position and appears on top of the previous div
   Thus not affected by the clickable link -->
   <div class="cocktail-container">
-
-    <div class="cocktail-image" style="background-image: url('<%= @cocktail.image_url %>');">
-    </div>
+    <% if @cocktail.image_url %>
+      <div class="cocktail-image" style="background-image: url('<%= @cocktail.image_url %>');"></div>
+    <% else %>
+      <div class="cocktail-image" style="background-image: url('<%= cl_image_path @cocktail.photo %>');"></div>
+    <% end %>
 
     <div class="cocktail-infos">
       <h1><%= @cocktail.name %></h1>

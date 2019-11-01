@@ -1,7 +1,3 @@
-<%= link_to new_cocktail_path do %>
-  <i id="new-cocktail-button" class="fas fa-plus"></i>
-<% end %>
-
 <div class="banner">
   <h1>SEXY COCKTAILS</h1>
 </div>
@@ -12,7 +8,11 @@
     <%= link_to cocktail_path(cocktail), class: 'link-to', :action => 'go' do %>
       <div class="card-product">
 
-        <img src="<%= cocktail.image_url %>"/>
+        <% if cocktail.image_url %>
+          <img src="<%= cocktail.image_url %>"/>
+        <% else %>
+          <img src="<%= cocktail.photo %>"/>
+        <% end %>
 
         <div class="card-product-infos">
           <h2><%= cocktail.name %></h2>
@@ -27,3 +27,7 @@
   <% end %>
 
 </div>
+
+<%= link_to new_cocktail_path do %>
+  <i id="new-cocktail-button" class="fas fa-plus"></i>
+<% end %>
