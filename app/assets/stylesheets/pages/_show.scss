@@ -12,7 +12,7 @@
   height: 100vh;
   background-position: center;
   background-size: cover;
-  opacity: 25%;
+  opacity: 35%;
 }
 
 .cocktail-container {
@@ -52,18 +52,9 @@
     }
 
     .cocktail-actions {
-      // width: 100%;
       position: absolute;
-      bottom: 0px;
+      bottom: 0;
       left: 0;
     }
   }
-}
-
-.actions {
-  width: 1000px;
-  margin: 0 auto;
-  padding: 10px;
-  display: flex;
-  justify-content: center;
 }

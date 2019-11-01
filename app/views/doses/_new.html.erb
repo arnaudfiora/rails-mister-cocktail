@@ -1,5 +1,5 @@
 <%= simple_form_for [@cocktail, @dose] do |f| %>
-  <div class="form-inline">
+  <div id="form-doses"class="form-inline">
     <div class="form-inputs form-inline">
       <%= f.input :description, placeholder: 'Dose', label: false %>
       <%= f.association :ingredient, label: false %>

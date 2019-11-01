@@ -1,0 +1,41 @@
+.actions {
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+#new-cocktail-button {
+  position: fixed;
+  z-index: 1000;
+  bottom: 40px;
+  right: 40px;
+
+  font-size: 80px;
+  color: black;
+}
+
+.new-form-background {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), asset-url('cocktailsform.png');
+  background-size: cover;
+}
+
+.form-container {
+  padding: 20px;
+  width: 800px;
+  box-shadow: 0 0 50px white;
+  border-radius: 10px;
+  color: white;
+
+  h1 {
+    font-size: 64px;
+  }
+
+  .form {
+    width: 600px;
+    margin: 0 auto;
+  }
+}

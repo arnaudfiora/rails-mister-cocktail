@@ -27,7 +27,7 @@ require 'open-uri'
 # Fetch cocktail API
 url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
 
-25.times do
+50.times do
   data = JSON.parse(open(url).read)
   cocktail_data = data['drinks'].first
 

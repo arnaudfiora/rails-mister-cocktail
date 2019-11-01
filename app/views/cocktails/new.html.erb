@@ -1,9 +1,14 @@
-<div class="form-container">
-  <div>
-    <h1>Create your god damn cocktail!</h1>
+<div class="wrapper">
+
+  <%= link_to root_path do %>
+      <div class="new-form-background"></div>
+  <% end %>
+
+  <div class="form-container" style="position: absolute">
+    <h1>Create your own<br>freakin' cocktail!</h1>
     <div class="form">
       <%= render 'form' %>
     </div>
   </div>
-</div>
 
+</div>
